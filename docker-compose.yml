@@ -1,0 +1,14 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: retain-postgres
+    environment:
+      POSTGRES_USER: retain
+      POSTGRES_PASSWORD: retain
+      POSTGRES_DB: retain
+    ports:
+      - "127.0.0.1:5436:5432"
+    volumes:
+      - retain-pgdata:/var/lib/postgresql/data
+volumes:
+  retain-pgdata:
