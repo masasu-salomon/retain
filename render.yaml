@@ -1,0 +1,31 @@
+# Render Blueprint for the Retain API (https://render.com/docs/blueprint-spec)
+services:
+  - type: web
+    name: retain-api
+    runtime: node
+    rootDir: server
+    plan: free
+    buildCommand: npm run render-build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NODE_VERSION
+        value: "20"
+      - key: DATABASE_URL
+        sync: false # Neon connection string (with ?sslmode=require)
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_EXPIRES_IN
+        value: 7d
+      - key: CLIENT_ORIGIN
+        sync: false # e.g. https://retain.vercel.app
+      - key: ADMIN_NAME
+        value: Retain Admin
+      - key: ADMIN_EMAIL
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: SEED_DEMO_DATA
+        value: "true"
