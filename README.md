@@ -4,8 +4,8 @@ Retain is a full-stack web app for recording personal expenses, setting a monthl
 
 | | |
 |---|---|
-| **Live app** | https://YOUR-APP.vercel.app _(replace after deploying)_ |
-| **Live API** | https://YOUR-API.onrender.com/api/health _(replace after deploying)_ |
+| **Live app** | https://retain-henna.vercel.app |
+| **Live API** | https://retain-api-mqmj.onrender.com/api/health |
 
 **Demo accounts** (created by the seed script):
 
@@ -185,7 +185,7 @@ In development, Vite proxies `/api` to `http://localhost:4000`, so no CORS setup
 
 | Variable | Description |
 |---|---|
-| `VITE_API_URL` | API base URL. `/api` locally; `https://YOUR-API.onrender.com/api` in production |
+| `VITE_API_URL` | API base URL. `/api` locally; `https://retain-api-mqmj.onrender.com/api` in production |
 | `VITE_CURRENCY` | ISO currency code used to format amounts (default `USD`) |
 
 ### Useful scripts
@@ -332,7 +332,7 @@ Deleting a user cascades to their expenses and budgets. Deleting a category that
 3. **Frontend (Vercel).** Import the repository and set the following:
    - **Root Directory:** `client`
    - **Framework:** Vite
-   - **Environment variable:** `VITE_API_URL=https://YOUR-API.onrender.com/api`
+   - **Environment variable:** `VITE_API_URL=https://retain-api-mqmj.onrender.com/api`
 
    [`client/vercel.json`](client/vercel.json) rewrites all routes to `index.html`, so deep links like `/expenses/123` work.
 4. Put both live URLs at the top of this README.
